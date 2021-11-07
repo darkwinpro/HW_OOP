@@ -32,6 +32,11 @@ namespace InfiniteArrayTask2
     {
         private static int[] _arrayOfElements;  // массив только элементов
         private static int _countOfElenents;    //счетчик вводимых элементов
+        static InfiniteArray()
+        {
+            _arrayOfElements = new int[4];
+        }
+        
 
         /// Возвращает количество элементов, которые уже были добавлены в массив.
         /// После вызова метода Clear становится 0. 
@@ -59,10 +64,6 @@ namespace InfiniteArrayTask2
         /// который будет хранить уже 16 элементов. Т.е. Capacity будет 16, а Cout будет 9.
         public static int GetCapacity()
         {
-            if (_arrayOfElements == null)
-            {
-                return 1;
-            }
             
             if (_countOfElenents > _arrayOfElements.Length)
             {
@@ -99,12 +100,6 @@ namespace InfiniteArrayTask2
         /// Увеличивает размер массива и копирует старые элементы в новый массив.
         private static void Resize(int newSize)
         {
-            if (newSize == 1)       //начальный массив !null
-            {
-                int[] tempArray = new int[1];
-                _arrayOfElements = tempArray;
-                return;             // выходим, чтобы записать самый первый элемент 
-            }
             
             if (newSize > _arrayOfElements.Length)      //если элемент не помещается 
             {
