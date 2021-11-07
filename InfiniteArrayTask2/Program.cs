@@ -30,7 +30,7 @@ namespace InfiniteArrayTask2
     /// Подробней тут: https://metanit.com/sharp/tutorial/20.5.php
     public static class InfiniteArray
     {
-        private static int[] _arrayOfElements;  // массив только элементов
+        private static int[] _arrayOfElements;  // массив  элементов
         private static int _countOfElenents;    //счетчик вводимых элементов
         static InfiniteArray()
         {
@@ -67,7 +67,7 @@ namespace InfiniteArrayTask2
             
             if (_countOfElenents > _arrayOfElements.Length)
             {
-                return _arrayOfElements.Length * 2;
+                Resize(_arrayOfElements.Length * 2); 
             }
             return _arrayOfElements.Length;
 
@@ -77,7 +77,7 @@ namespace InfiniteArrayTask2
         public static void Add(int element)
         {
             _countOfElenents += 1;
-            Resize(GetCapacity());              // проверяем вместительность и если нужно увеличиваем буфер
+            Resize(GetCapacity());              // проверяем вместительность и если нужно увеличиваем
             _arrayOfElements[_countOfElenents - 1] = element;       //дописываем новый элемент
         }
 
